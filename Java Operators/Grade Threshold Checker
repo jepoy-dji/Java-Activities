@@ -1,0 +1,22 @@
+public class GradeThresholdChecker {
+    public static void main(String[] args) {
+        double average = 86.7;
+        int absences = 2;
+
+        boolean passes = (average >= 75 && absences <= 3) || average >= 90;
+
+        if (passes) {
+            System.out.println("PASS");
+        } else {
+            System.out.println("FAIL");
+        }
+
+        if (average >= 90) {
+            System.out.println("Reason: average is 90 or higher, absences do not matter.");
+        } else if (average >= 75 && absences <= 3) {
+            System.out.println("Reason: average is at least 75 and absences are 3 or fewer.");
+        } else {
+            System.out.println("Reason: average is below 75 or there are more than 3 absences.");
+        }
+    }
+}
