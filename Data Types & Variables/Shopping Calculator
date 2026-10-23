@@ -1,0 +1,18 @@
+public class ShoppingCalculator {
+    public static void main(String[] args) {
+        int quantity = 3;
+        double unitPrice = 25.50;
+        String storeName = "Mini Mart";
+
+        double totalCost = quantity * unitPrice;
+
+        // totalCost should NOT be an int because prices have centavos.
+        // An int cannot hold decimals, so 76.5 would be cut to 76
+        // and the total would be wrong.
+
+        System.out.println("Store: " + storeName);
+        System.out.println("Quantity: " + quantity);
+        System.out.println("Unit price: " + unitPrice);
+        System.out.println("Total: " + totalCost);
+    }
+}
