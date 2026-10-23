@@ -1,0 +1,24 @@
+public class UnitCastingConverter {
+    public static void main(String[] args) {
+        double centimeters = 175.5;
+
+        // Explicit cast: (int) keeps only the whole meters
+        int meters = (int) (centimeters / 100);
+        double remainingCm = centimeters - (meters * 100);
+        System.out.println(meters + " m and " + remainingCm + " cm");
+
+        // Implicit widening: int to double
+        int whole = 5;
+        double widened = whole;
+        // No cast needed because a double can hold any int value,
+        // so no data is lost.
+        System.out.println("Widening: " + widened);
+
+        // Explicit narrowing: double to int
+        double price = 9.99;
+        int narrowed = (int) price;
+        // The .99 is lost. Java cuts off the decimal (it does not round),
+        // so the result is 9.
+        System.out.println("Narrowing: " + narrowed);
+    }
+}
