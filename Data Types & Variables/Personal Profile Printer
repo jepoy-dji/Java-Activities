@@ -1,1 +1,18 @@
+public class PersonalProfilePrinter {
+    public static void main(String[] args) {
+        // Primitive types
+        int age = 19;
+        double height = 1.68;
+        char initial = 'J';
+        boolean isRegular = true;
 
+        // Reference type
+        String fullName = "Jaypee Llanillo";
+
+        System.out.println("Full name: " + fullName);
+        System.out.println("Age: " + age);
+        System.out.println("Height (m): " + height);
+        System.out.println("Initial: " + initial);
+        System.out.println("Status: " + "Single");
+    }
+}
