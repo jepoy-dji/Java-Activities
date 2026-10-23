@@ -1,0 +1,17 @@
+public class PrecedencePuzzleSolver {
+    public static void main(String[] args) {
+        // Predicted: 14 (multiplication happens before addition)
+        int r1 = 2 + 3 * 4;
+        System.out.println("Expression 1: " + r1);
+
+        // Predicted: true (&& is done before ||, so 2 > 4 && false is false,
+        // then true || false is true)
+        boolean r2 = 5 > 3 || 2 > 4 && false;
+        System.out.println("Expression 2: " + r2);
+
+        // Predicted: 12 (x++ gives 5 then x becomes 6, ++x makes x 7 and gives 7, so 5 + 7)
+        int x = 5;
+        int r3 = x++ + ++x;
+        System.out.println("Expression 3: " + r3);
+    }
+}
