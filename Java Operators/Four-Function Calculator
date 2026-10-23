@@ -1,1 +1,17 @@
+public class FourFunctionCalculator {
+    public static void main(String[] args) {
+        int a = 6;
+        int b = -7;
 
+        System.out.println("Addition: " + (a + b));
+        System.out.println("Subtraction: " + (a - b));
+        System.out.println("Multiplication: " + (a * b));
+        System.out.println("Division: " + (a / b));
+        System.out.println("Modulus: " + (a % b));
+
+        // Integer division in Java truncates toward zero.
+        // 6 / -7 is about -0.857, so the decimal part is dropped and the result is 0.
+        // The % operator returns the remainder, and its sign follows the first
+        // operand (the dividend). Since 6 / -7 is 0, the remainder is 6 - (-7 * 0) = 6.
+    }
+}
