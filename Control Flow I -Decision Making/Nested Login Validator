@@ -1,0 +1,21 @@
+public class NestedLoginValidator {
+    public static void main(String[] args) {
+        String inputUser = "jaypee";
+        String inputPass = "jp6767";
+        boolean isLocked = false;
+
+        if (inputUser.equals("jaypee")) {
+            if (inputPass.equals("jp6767")) {
+                if (!isLocked) {
+                    System.out.println("Login successful");
+                } else {
+                    System.out.println("Failed at stage 3: account is locked");
+                }
+            } else {
+                System.out.println("Failed at stage 2: wrong password");
+            }
+        } else {
+            System.out.println("Failed at stage 1: wrong username");
+        }
+    }
+}
