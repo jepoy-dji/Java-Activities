@@ -1,0 +1,18 @@
+public class PatternGenerator {
+    public static void main(String[] args) {
+        int size = 5;
+
+        for (int row = 1; row <= size; row++) {
+            if (row == 3) {
+                continue; // CONTINUE: skips row 3 completely
+            }
+            for (int col = 1; col <= row; col++) {
+                if (col == 4) {
+                    break; // BREAK: stops the inner loop at column 4
+                }
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
