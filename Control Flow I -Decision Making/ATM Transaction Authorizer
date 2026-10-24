@@ -1,0 +1,68 @@
+public class ATMTransactionAuthorizer {
+    public static void main(String[] args) {
+        String inputUser = "Jaypee";
+        int inputPin = 6769;
+        double balance = 25000;
+        double withdrawAmount = 5000;
+
+        if (inputUser.equals("Jaypee")) {
+            if (inputPin == 6769) {
+
+                // Tier from balance (else-if ladder)
+                String tier;
+                if (balance >= 50000) {
+                    tier = "Platinum";
+                } else if (balance >= 20000) {
+                    tier = "Gold";
+                } else if (balance >= 5000) {
+                    tier = "Silver";
+                } else {
+                    tier = "Bronze";
+                }
+
+                // Fee percentage and daily limit from tier (switch)
+                double feeRate;
+                double dailyLimit;
+                switch (tier) {
+                    case "Platinum":
+                        feeRate = 0;
+                        dailyLimit = 50000;
+                        break;
+                    case "Gold":
+                        feeRate = 0.5;
+                        dailyLimit = 20000;
+                        break;
+                    case "Silver":
+                        feeRate = 1;
+                        dailyLimit = 10000;
+                        break;
+                    default:
+                        feeRate = 2;
+                        dailyLimit = 3000;
+                }
+
+                double fee = withdrawAmount * feeRate / 100;
+                double total = withdrawAmount + fee;
+
+                System.out.println("Tier: " + tier);
+
+                // Nested if: enough balance AND within the daily limit
+                if (total <= balance) {
+                    if (withdrawAmount <= dailyLimit) {
+                        System.out.println("APPROVE: withdrew " + withdrawAmount
+                                + " with a fee of " + fee);
+                    } else {
+                        System.out.println("DENY: exceeds the " + tier
+                                + " daily limit of " + dailyLimit);
+                    }
+                } else {
+                    System.out.println("DENY: insufficient balance");
+                }
+            } else {
+                System.out.println("DENY: wrong PIN");
+            }
+        } else {
+            System.out.println("DENY: wrong username");
+        }
+    }
+}
