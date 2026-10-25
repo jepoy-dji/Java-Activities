@@ -1,0 +1,34 @@
+import java.util.Arrays;
+
+public class SearchSortMiniTool {
+    public static void main(String[] args) {
+        int[] scores = {85, 90, 78, 92, 66, 88, 75, 95};
+        int target = 88;
+
+        // Linear search
+        int foundIndex = -1;
+        for (int i = 0; i < scores.length; i++) {
+            if (scores[i] == target) {
+                foundIndex = i;
+                break;
+            }
+        }
+
+        if (foundIndex != -1) {
+            System.out.println(target + " found at index " + foundIndex);
+        } else {
+            System.out.println(target + " not found");
+        }
+
+        // Sort a copy, not the original
+        int[] sorted = Arrays.copyOf(scores, scores.length);
+        Arrays.sort(sorted);
+
+        // Sorting a copy matters because Arrays.sort() changes the array
+        // itself. If we sorted the original, we would lose the original
+        // order, and the index we found above would no longer be correct.
+
+        System.out.println("Original: " + Arrays.toString(scores));
+        System.out.println("Sorted: " + Arrays.toString(sorted));
+    }
+}
